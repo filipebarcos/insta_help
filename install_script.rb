@@ -65,7 +65,17 @@ class Application
   end
 end
 
-[Application.new("dropbox", "https://dl.dropboxusercontent.com/u/17/Dropbox%202.0.16.dmg")].each do |app|
+applications = [
+  Application.new("Dropbox", "https://dl.dropboxusercontent.com/u/17/Dropbox%202.0.16.dmg"),
+  Application.new("SublimeText2", ""),
+  Application.new("iTerm2", "https://iterm2.googlecode.com/files/iTerm2-1_0_0_20130324-LeopardPPC.zip"),
+  Application.new("Firefox", "http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/21.0/mac/en-US/Firefox%2021.0.dmg"),
+  Application.new("Chrome", "https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg"),
+  Application.new("Vagrant", ""),
+  Application.new("TeamViewer", "")
+]
+
+applications.each do |app|
   filepath = Handler.download app
   Handler.install app.extension, filepath
 end
